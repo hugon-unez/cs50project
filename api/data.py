@@ -13,7 +13,7 @@ def stock_data(ticker, tweet_times):
     # format for open price is data['Time Series (1min)'][time]['1. open']
     table_of_stuff = [];
     for time in valid_times:
-       table_of_stuff.append([data['Time Series (5min)'][time]['1. open'], data['Time Series (5min)'][time]['4. close'], data['Time Series (5min)'][time]['5. volume']])
+       table_of_stuff.append([float(data['Time Series (5min)'][time]['1. open']), float(data['Time Series (5min)'][time]['4. close']), float(data['Time Series (5min)'][time]['5. volume'])])
     # format for close price is data['Time Series (1min)'][time]['4. close']
     return table_of_stuff
     #print(float(data['Time Series (1min)'][time]['1. open']))
