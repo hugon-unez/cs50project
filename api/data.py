@@ -11,8 +11,9 @@ def stock_data(ticker, tweet_times):
     # using python set functions, create a list of times where the input user tweeted, and there was stock data
     valid_times = list(set(stock_times) & set(tweet_times))
     # format for open price is data['Time Series (1min)'][time]['1. open']
+    table_of_stuff = [];
     for time in valid_times:
-       print(data['Time Series (5min)'][time]['1. open'] +". five mintues later "+data['Time Series (5min)'][time]['4. close'] )
+       table_of_stuff.append([data['Time Series (5min)'][time]['1. open'], data['Time Series (5min)'][time]['4. close'], data['Time Series (5min)'][time]['5. volume']])
     # format for close price is data['Time Series (1min)'][time]['4. close']
-    
+    return table_of_stuff
     #print(float(data['Time Series (1min)'][time]['1. open']))
