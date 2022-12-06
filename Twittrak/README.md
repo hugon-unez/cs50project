@@ -8,6 +8,7 @@ pip install sklearn (this will install sklearn, a machine learning package)
 pip install requests (this will install requests)
 pip install pytz (this will install pytz)
 pip install tweepy (this will install tweepy)
+pip install flask (this will install flask)
 
 In addition the operator should make sure that they have downloaeded the os and json files.
 
