@@ -11,6 +11,6 @@ pip install tweepy (this will install tweepy)
 
 In addition the operator should make sure that they have downloaeded the os and json files.
 
-Once the operator has ensured that the proper packages and files are present, then they should run the code by executing "flask run". This will execute the html code and generate the webpage. If successful, the operator should then follow the link to the generated webpage. 
+Once the operator has ensured that the proper packages and files are present, then they should run the code by executing "flask run" for app.py. This will execute the html code and generate the webpage. If successful, the operator should then follow the link to the generated webpage. 
 
-On the webpage, the operator should see a text input box and a submit button. The operator should input the username of a twitter user who they think pay impact the price of SPY. Then, the webpage should display text that tells the operator the predicted change in price and the predicted new price in five minutes. If the operator inputs an invalid twitter username, they will be redirected back to the main page, where they can input a valid twitter username. 
+On the webpage, the operator should see a text input box and a submit button. The operator should input the username of a twitter user who they think may impact the price of SPY. Then, the webpage should display text that tells the operator the predicted change in price and the predicted new price in five minutes. If the operator inputs an invalid twitter username, they will be redirected back to the main page, where they can input a valid twitter username. 
