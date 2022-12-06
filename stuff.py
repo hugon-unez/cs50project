@@ -18,7 +18,7 @@ def predicted_change():
     recent_csv_data = recent_price()
     # Make the recent data csv into a dataframe.
     recent_data = pd.DataFrame(recent_csv_data)
-    # Researched transpose function: https://www.w3resource.com/pandas/dataframe/dataframe-transpose.php#:~:text=The%20transpose()%20function%20is,as%20columns%20and%20vice%2Dversa.&text=If%20True%2C%20the%20underlying%20data,copy%20is%20made%20if%20possible.
+    # Researched transpose function: https://www.w3resource.com/pandas/dataframe/dataframe-transpose.php#:
     # Tanspose the data frame to be compatible with the predicting model.
     recent_data = recent_data.T
     # Obtain the recent tweet history and corresponding price data.
