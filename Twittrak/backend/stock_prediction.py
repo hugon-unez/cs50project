@@ -1,5 +1,5 @@
 # Reviewed old notes to refresh on pandas
-# Supervised machine learning. Much of this is similar to what I did over the summer.
+# Supervised machine learning. I used a similar method of prediction over the summer with github. (datacamp.com)
 # https://www.w3schools.com/python/pandas/pandas_getting_started.asp
 import pandas as pd
 # https://scikit-learn.org/stable/install.html
