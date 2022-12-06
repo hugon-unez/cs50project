@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+{% block main %}
+  <h1>
+    We predict that 5 minutes after @{{username}} tweets, the price of SPY will change by {{change | usd}} to {{new_price | usd}}
+  </h1>
+{% endblock %}
