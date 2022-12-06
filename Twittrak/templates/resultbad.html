@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+{% block main %}
+  <h1>
+    We predict that 5 minutes after @{{username}} tweets, the price of SPY will decrease by {{change | usd}} to {{new_price | usd}}.
+  </h1>
+  <img src="https://video-images.vice.com/articles/618aaa0b5aae97009a09fa5b/lede/1636478607254-screen-shot-2021-11-09-at-121950-pm.png" alt="Stonks DOWN">
+  <form action="/home" method="post">
+    <button class="btn btn-primary center" type="submit">Back</button>
+</form>
+{% endblock %}
