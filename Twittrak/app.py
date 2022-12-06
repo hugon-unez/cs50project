@@ -1,14 +1,14 @@
-# reused general implementation from finance in order to have a running front end
 from flask import Flask, redirect, render_template, request
 from backend.stock_data import recent_price
 from backend.stock_prediction import predicted_change
 # short helper to format money from finance pset
 def usd(value):
     return f"${value:,.2f}"
+
 # Configure application
 app = Flask(__name__)
 app.jinja_env.filters["usd"] = usd
-# Configure session to use filesystem (instead of signed cookies)
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -23,16 +23,17 @@ def index():
 def correlate():
     if request.method == "POST":
         username = request.form.get("username")
-        #check if valid username
+        #check if valid username before submitting to API
         for char in username:
             if not char.isnumeric() and not char.isalpha():
                 return redirect("/")
+        # call predicted_change function to check if API returned a valid username
         change = predicted_change(username)
         if change == "Invalid Input":
             return redirect("/")
+        # the predicted price is the most recent price plus the predicted
         new_price = recent_price()[0] + change
-        #input to tweet thing
-        #interpret result and show
+        #interpret result and show template
         if change > 0:
             return render_template("result.html", username = username, change = change, new_price=new_price)
         if change < 0:
