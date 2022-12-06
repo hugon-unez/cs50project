@@ -14,25 +14,32 @@ from sklearn.metrics import mean_squared_error as MSE
 from twitter import twitter_stuff
 from data import recent_price
 def predicted_change():
+    # Obtain the recent price data (the current price and volume).
     recent_csv_data = recent_price()
+    # Make the recent data csv into a dataframe.
     recent_data = pd.DataFrame(recent_csv_data)
     # Researched transpose function: https://www.w3resource.com/pandas/dataframe/dataframe-transpose.php#:~:text=The%20transpose()%20function%20is,as%20columns%20and%20vice%2Dversa.&text=If%20True%2C%20the%20underlying%20data,copy%20is%20made%20if%20possible.
+    # Tanspose the data frame to be compatible with the predicting model.
     recent_data = recent_data.T
+    # Obtain the recent tweet history and corresponding price data.
     csv_data = twitter_stuff()
+    # Make the price data from the tweets into a dataframe.
     data = pd.DataFrame(csv_data)
+    # Create a new column that consists of the price change over the interval.
     data["change"] = data[1]-data[0]
+    # Create list y of the price changes.
     y = data["change"]
+    # Create data frame X of the opening prices and volumes.
     X = data[[0,2]]
+    # Create the prediction regression model. Tuned depth to have relatively accurate results with balanced runtime.
     tree = DecisionTreeRegressor(max_depth = 3, min_samples_leaf = 0.1, random_state = 1)
+    # Fit the model.
     tree.fit(X, y)
+    # Use the most recent data to predict the effect of a new tweet.
     y_pred = tree.predict(recent_data)
-    # mse_tree = MSE(y, y_pred)
-    # rmse_tree = mse_tree**(0.5)
-    # print(y_pred)
-    # print(mse_tree)
-    # print(rmse_tree)
-    return y_pred
 
+    # Return the predicted change in price.
+    return y_pred
 
     # https://realpython.com/train-test-split-python-data/
     # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, stratify = y, random_state = 1)
@@ -41,6 +48,12 @@ def predicted_change():
     # y_pred = tree.predict(X_test)
     # accuracy_score(y_test, y_pred)
     # print(accuracy_score)
+
+    # mse_tree = MSE(y, y_pred)
+    # rmse_tree = mse_tree**(0.5)
+    # print(y_pred)
+    # print(mse_tree)
+    # print(rmse_tree)
 
 
     # Researched to fix issue: https://www.statology.org/valueerror-unknown-label-type-continuous/
